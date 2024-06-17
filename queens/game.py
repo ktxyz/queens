@@ -83,7 +83,7 @@ def generate_board(width: int, height: int, positions: List[Tuple[int, int]]) ->
                 if board[newp[0]][newp[1]] != -1:
                     continue
 
-                if not generatedAlready and random.random() < 0.45:
+                if (not generatedAlready) and random.random() < 0.45:
                     continue
 
                 canUpdate = True
@@ -92,6 +92,18 @@ def generate_board(width: int, height: int, positions: List[Tuple[int, int]]) ->
                 for d in [(1, 0), (0, 1), (-1, 0), (0, -1)]:
                     queue[idx].append((newp[0] + d[0], newp[1] + d[1]))
                 break
+    
+    for x in range(width):
+        for y in range(height):
+            d = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+            random.shuffle(d)
+            if board[y][x] == -1:
+                for dx, dy in d:
+                    nx = x + dx
+                    ny = y + dy
+                    if nx < 0 or ny < 0 or nx >= width or ny >= height:
+                        continue
+                    board[y][x] = board[ny][nx]
     
     # default colors for 8x8
     colors = ["#ffc992", "#ff7b60", "#b3dfa0", "#96beff", "#b9b29e", "#62efea", "#e6f388", "#bba3e2"]
