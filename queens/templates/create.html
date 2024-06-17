@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queens</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Create Queens Puzzle</h1>
+            <h4>Rules:</h4>
+            <ol>
+                <li>Your goal is to put <b>exactly one</b> piece in every <b>row, column</b> and <b>color region</b>.</li>
+                <li>You can put a marker in a cell by clicking on it. If you click on a cell with a marker present it will turn into a piece. 
+                    Clicking on a cell with a piece will remove the piece from the board.</li>
+                <li>No two pieces can touch, even diagonally.</li>
+            </ol>
+        </header>
+
+        <section>
+            <canvas id="queenCanvas">
+            </canvas>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/grid.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queens</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+    <main>
+        <section>
+            <header>
+                <h1>Solve Queens Puzzle</h1>
+                <h3>Rules:</h3>
+                <ol>
+                    <li id="rule1">Your goal is to put <b>exactly one</b> piece in every: <b><ul>
+                        <li id="subrule1">row</li>
+                        <li id="subrule2">column</li>
+                        <li id="subrule3">color</li>
+                    </ul></b></li>
+                    <li id="rule2">You can put a marker in a cell by clicking on it. If you click on a cell with a marker present it will turn into a piece. Clicking on a cell with a piece will remove the piece from the board.</li>
+                    <li id="rule3">No two pieces can touch, even diagonally.</li>
+                </ol>
+            </header>
+
+            <section>
+                <div>
+                    <h4>Puzzle seed:</h4>
+                    <input type="text" id="seedTextBox">
+                </div>
+                <button id="startButton">Start the puzzle</button>
+            </section>
+        </section>
+
+        <section>
+            <h4 id="errorHeader">Error connecting with API. Please refresh the page.</h4>
+            <h2 id="timerHeader">Time Passed: <span id="timerSpan"></span></h2>
+            <canvas id="gridCanvas">
+            </canvas>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/grid.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>
